@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Context from 'components/Context/Context';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/">
+  <BrowserRouter basename="/goit-react-hw-05-movies">
     <Context>
       <App />
     </Context>
