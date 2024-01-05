@@ -1,36 +1,17 @@
-import FormLogin from 'components/FormLogin/FormLogin';
-import { Header } from 'components/Header/Header';
-import Modal from 'components/Modal/Modal';
-import { nanoid } from 'nanoid';
-import React, { useState } from 'react';
-import { Toaster } from 'react-hot-toast';
-import { Outlet } from 'react-router-dom';
-
-export const Layout = () => {
-  const [isShowModal, setIsShowModal] = useState(false);
-
-  const showModal = () => setIsShowModal(true);
-
-  const closeModal = () => setIsShowModal(false);
-
-  function createUser(data) {
-    const newUser = {
-      ...data,
-      id: nanoid(),
-    };
-    console.log('newUser :>> ', newUser);
-  }
-
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
+const Layout = () => {
   return (
     <div className="container">
-      <Toaster position="top-right" toastOptions={{ duration: 1500 }} />
-      <Header showModal={showModal} />
+      <header>
+        <nav>
+          <Link to={'/'}>Home</Link>
+          <Link to={'/movies'}>Movies</Link>
+        </nav>
+      </header>
       <Outlet />
-      {isShowModal && (
-        <Modal closeModal={closeModal}>
-          <FormLogin closeModal={closeModal} createUser={createUser} />
-        </Modal>
-      )}
     </div>
   );
 };
+
+export default Layout;
