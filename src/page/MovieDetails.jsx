@@ -19,7 +19,7 @@ const MovieDetails = () => {
     };
 
     fetchMoveisDetails();
-  }, [movieId]);
+  }, [movieId, setMovieDetails]);
 
   return (
     <>
