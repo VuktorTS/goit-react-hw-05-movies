@@ -10,7 +10,7 @@ const MovieInfo = ({
     poster_path,
   },
 }) => {
-  console.log('title: ', title);
+  //   console.log('title: ', title);
   console.log('render MovieInfo');
   return (
     <div className="container">
