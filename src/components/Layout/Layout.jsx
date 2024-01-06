@@ -9,9 +9,9 @@ const Layout = () => {
           <Link to={'/movies'}>Movies</Link>
         </nav>
       </header>
-      {/* <Suspense fallback={<div>Loading page...</div>}> */}
-      <Outlet />
-      {/* </Suspense> */}
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
