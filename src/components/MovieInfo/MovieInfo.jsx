@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 const MovieInfo = ({
   movieDetails: {
@@ -10,36 +11,50 @@ const MovieInfo = ({
     poster_path,
   },
 }) => {
-  //   console.log('title: ', title);
-  console.log('render MovieInfo');
   return (
     <div className="container">
-      <img
-        src={
-          poster_path
-            ? `https://image.tmdb.org/t/p/w500${poster_path}`
-            : `https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg`
-        }
-        alt={title}
-      />
       <div>
-        <h1>
-          {title} ({release_date})
-        </h1>
+        <img
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w500${poster_path}`
+              : `https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700`
+          }
+          alt={title}
+          width={264}
+          height={396}
+        />
         <div>
-          <p>User Score: {popularity}%</p>
-
-          <p>
-            <span>Overview</span>
-            {overview}
-          </p>
-
-          <p>
-            <span>Genres</span>
-            {genres}
-          </p>
+          <h1>
+            {title} ({release_date.slice(0, 4)})
+          </h1>
+          <div>
+            <p>User Score: {popularity}%</p>
+            <p>
+              <span>Overview: </span>
+              {overview}
+            </p>
+            <p>
+              <span>Genres: </span>
+              {genres?.map(({ name }) => name).join(', ')}
+            </p>
+          </div>
         </div>
       </div>
+      <div className="additional">
+        <h3>Additional information</h3>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

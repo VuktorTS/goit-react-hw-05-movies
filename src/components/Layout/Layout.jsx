@@ -1,18 +1,16 @@
-import React, { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import Header from 'components/Header/Header';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
-    <div className="container">
-      <header>
-        <nav>
-          <Link to={'/'}>Home</Link>
-          <Link to={'/movies'}>Movies</Link>
-        </nav>
-      </header>
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet />
-      </Suspense>
-    </div>
+    <>
+      <Header />
+      <div className="main">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </div>
+    </>
   );
 };
 
