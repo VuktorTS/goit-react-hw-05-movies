@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MuviesList = ({ muviesTrend }) => {
+const MuviesList = ({ muviesList }) => {
+  console.log('muviesList: ', muviesList);
   return (
     <ul>
-      {muviesTrend.map(({ id, original_title }) => {
+      {muviesList.map(({ id, original_title }) => {
         return (
           <li key={id}>
             <Link to={`/movies/${id}`}>{original_title}</Link>

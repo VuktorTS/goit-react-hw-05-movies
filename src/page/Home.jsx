@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { getTrending } from 'services/themoviedbAPI';
 
 const Home = () => {
-  const [muviesTrend, setMuviesTrend] = useState([]);
+  const [muviesList, setMuviesList] = useState([]);
 
   useEffect(() => {
     const fetchTrendingFilms = () => {
       getTrending().then(trendingFilms => {
-        setMuviesTrend(trendingFilms.results);
+        setMuviesList(trendingFilms.results);
       });
     };
     fetchTrendingFilms();
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div>
       <h1>Trending today</h1>
-      <MuviesList muviesTrend={muviesTrend} />
+      <MuviesList muviesList={muviesList} />
     </div>
   );
 };

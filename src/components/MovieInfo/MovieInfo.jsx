@@ -5,7 +5,7 @@ const MovieInfo = ({
   movieDetails: {
     title,
     release_date,
-    popularity,
+    vote_average,
     overview,
     genres,
     poster_path,
@@ -29,7 +29,7 @@ const MovieInfo = ({
             {title} ({release_date.slice(0, 4)})
           </h1>
           <div>
-            <p>User Score: {popularity}%</p>
+            <p>User Score: {vote_average.toFixed(1) * 10}%</p>
             <p>
               <span>Overview: </span>
               {overview}
