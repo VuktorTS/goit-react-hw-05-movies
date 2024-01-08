@@ -1,5 +1,5 @@
 import MovieInfo from 'components/MovieInfo/MovieInfo';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/themoviedbAPI';
 
@@ -7,7 +7,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const location = useLocation();
-  const BackLocationHref = location.state?.from ?? '/';
+  const BackLocationHref = useRef(location.state?.from ?? '/');
   useEffect(() => {
     const fetchMoveisDetails = async () => {
       try {
@@ -23,7 +23,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <NavLink to={BackLocationHref} className="back-link">
+      <NavLink to={BackLocationHref.current} className="back-link">
         ←Go Back
       </NavLink>
       {movieDetails && <MovieInfo movieDetails={movieDetails} />}

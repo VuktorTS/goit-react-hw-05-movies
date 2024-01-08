@@ -1,5 +1,6 @@
 import MuviesList from 'components/MuviesList/MuviesList';
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { getTrending } from 'services/themoviedbAPI';
 
 const Home = () => {

@@ -1,6 +1,6 @@
 import MuviesList from 'components/MuviesList/MuviesList';
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { getMovieByName } from 'services/themoviedbAPI';
 
 const Movies = () => {
@@ -9,7 +9,6 @@ const Movies = () => {
   const [searchData, setSearchData] = useState([]);
 
   const query = searchParams.get('query') ?? '';
-
   useEffect(() => {
     const searchMovies = async () => {
       try {
@@ -31,7 +30,7 @@ const Movies = () => {
     <>
       <form>
         <button type="submit">search</button>
-        <input type="text" onChange={handleChange} />
+        <input value={query} type="text" onChange={handleChange} />
       </form>
       <MuviesList muviesList={searchData} />
     </>
