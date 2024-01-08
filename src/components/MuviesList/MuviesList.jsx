@@ -1,16 +1,28 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-
+import { defaultImg } from 'services/defaultImg';
 
 const MuviesList = ({ muviesList }) => {
   const location = useLocation();
+
   return (
     <ul>
-      {muviesList.map(({ id, original_title }) => {
+      {muviesList.map(({ id, original_title, poster_path, title }) => {
         return (
           <li key={id}>
-            <Link to={`/movies/${id}`} state={{from: location}}>{original_title}</Link>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
+              <img
+                src={
+                  poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                    : defaultImg
+                }
+                alt={title}
+                width={264}
+                height={396}
+              />
+              <h2>{original_title}</h2>
+            </Link>
           </li>
         );
       })}
