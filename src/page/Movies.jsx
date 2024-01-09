@@ -1,4 +1,5 @@
 import MuviesList from 'components/MuviesList/MuviesList';
+import SearchForm from 'components/SearchForm/SearchForm';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getMovieByName } from 'services/themoviedbAPI';
@@ -28,11 +29,8 @@ const Movies = () => {
   };
   return (
     <>
-      <form>
-        <button type="submit">search</button>
-        <input value={query} type="text" onChange={handleChange} />
-      </form>
-      <MuviesList muviesList={searchData} />
+      <SearchForm query={query} handleChange={handleChange} />
+      <MuviesList muviesList={searchData} title={'lorem'} />
     </>
   );
 };

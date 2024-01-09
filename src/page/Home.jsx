@@ -15,8 +15,7 @@ const Home = () => {
   }, []);
   return (
     <div className="container">
-      <h1>Trending today</h1>
-      <MuviesList muviesList={muviesList} />
+      <MuviesList muviesList={muviesList} title={'Trending today'} />
     </div>
   );
 };

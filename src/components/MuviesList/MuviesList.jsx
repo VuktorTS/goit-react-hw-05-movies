@@ -1,33 +1,37 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { defaultImg } from 'services/defaultImg';
-import { MovieLink, MoviesList } from './MuviesList.styled';
+import { MovieLink, MoviesList, Title } from './MuviesList.styled';
 
-const MuviesList = ({ muviesList }) => {
+const MuviesList = ({ muviesList, title }) => {
   const location = useLocation();
+  console.log('defaultImg: ', defaultImg);
 
   return (
-    <MoviesList>
-      {muviesList.map(({ id, original_title, poster_path, title }) => {
-        return (
-          <li key={id}>
-            <MovieLink to={`/movies/${id}`} state={{ from: location }}>
-              <img
-                src={
-                  poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                    : defaultImg
-                }
-                alt={title}
-                width={264}
-                height={396}
-              />
-              <h2>{original_title}</h2>
-            </MovieLink>
-          </li>
-        );
-      })}
-    </MoviesList>
+    <>
+      <Title>{title}</Title>
+      <MoviesList>
+        {muviesList.map(({ id, original_title, poster_path, title }) => {
+          return (
+            <li key={id}>
+              <MovieLink to={`/movies/${id}`} state={{ from: location }}>
+                <img
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                      : defaultImg
+                  }
+                  alt={title}
+                  width={264}
+                  height={396}
+                />
+                <h2>{original_title}</h2>
+              </MovieLink>
+            </li>
+          );
+        })}
+      </MoviesList>
+    </>
   );
 };
 

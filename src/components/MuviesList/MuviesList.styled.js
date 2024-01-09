@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const Title = styled.h1`
+  text-align: center;
+`;
 export const MoviesList = styled.ul`
   display: flex;
   flex-direction: row;
