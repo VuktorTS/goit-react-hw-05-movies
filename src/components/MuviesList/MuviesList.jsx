@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { defaultImg } from 'services/defaultImg';
+import { MovieLink, MoviesList } from './MuviesList.styled';
 
 const MuviesList = ({ muviesList }) => {
   const location = useLocation();
 
   return (
-    <ul>
+    <MoviesList>
       {muviesList.map(({ id, original_title, poster_path, title }) => {
         return (
           <li key={id}>
-            <Link to={`/movies/${id}`} state={{ from: location }}>
+            <MovieLink to={`/movies/${id}`} state={{ from: location }}>
               <img
                 src={
                   poster_path
@@ -22,11 +23,11 @@ const MuviesList = ({ muviesList }) => {
                 height={396}
               />
               <h2>{original_title}</h2>
-            </Link>
+            </MovieLink>
           </li>
         );
       })}
-    </ul>
+    </MoviesList>
   );
 };
 

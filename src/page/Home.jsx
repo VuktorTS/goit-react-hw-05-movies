@@ -1,7 +1,5 @@
-import Header from 'components/Header/Header';
 import MuviesList from 'components/MuviesList/MuviesList';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { getTrending } from 'services/themoviedbAPI';
 
 const Home = () => {
@@ -16,7 +14,7 @@ const Home = () => {
     fetchTrendingFilms();
   }, []);
   return (
-    <div>
+    <div className="container">
       <h1>Trending today</h1>
       <MuviesList muviesList={muviesList} />
     </div>
