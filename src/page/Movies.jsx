@@ -1,12 +1,12 @@
 import MuviesList from 'components/MuviesList/MuviesList';
 import SearchForm from 'components/SearchForm/SearchForm';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { getMovieByName } from 'services/themoviedbAPI';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
   const [searchData, setSearchData] = useState([]);
 
   const query = searchParams.get('query') ?? '';
