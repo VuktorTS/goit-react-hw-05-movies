@@ -22,8 +22,8 @@ const MuviesList = ({ muviesList, title }) => {
                       : defaultImg
                   }
                   alt={title}
-                  width={264}
-                  height={396}
+                  width={266}
+                  height={398}
                 />
                 <h2>{original_title}</h2>
               </MovieLink>

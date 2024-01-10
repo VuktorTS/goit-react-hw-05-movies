@@ -7,7 +7,12 @@ export const CastList = styled.ul`
   padding-bottom: 20px;
 `;
 export const CastItem = styled.li`
-  width: calc((100% - 96px) / 5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  width: calc((100% - 116px) / 5);
 `;
 export const CastInfo = styled.div`
   display: flex;
@@ -15,6 +20,8 @@ export const CastInfo = styled.div`
   gap: 10px;
   align-items: center;
   padding: 10px 0;
+  border-top: 1px solid black;
+  flex-grow: 1;
   & h3 {
     font-size: 20px;
   }
