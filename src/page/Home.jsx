@@ -14,9 +14,9 @@ const Home = () => {
     fetchTrendingFilms();
   }, []);
   return (
-    <div className="container">
+    <>
       <MuviesList muviesList={muviesList} title={'Trending today'} />
-    </div>
+    </>
   );
 };
 

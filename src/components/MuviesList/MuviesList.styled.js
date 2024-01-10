@@ -13,7 +13,7 @@ export const MoviesList = styled.ul`
   list-style: none;
   color: red;
   & li {
-    flex-basis: calc((100% - 72px) / 4);
+    flex-basis: calc((100% - 76px) / 4);
     border: 1px solid black;
     border-radius: 5px;
     overflow: hidden;

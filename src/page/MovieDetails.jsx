@@ -23,7 +23,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <NavLink to={BackLocationHref.current} className="back-link">
+      <NavLink to={BackLocationHref.current} className="go-back-link">
         ←Go Back
       </NavLink>
       {movieDetails && <MovieInfo movieDetails={movieDetails} />}

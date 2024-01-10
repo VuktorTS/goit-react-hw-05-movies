@@ -1,5 +1,13 @@
 import React, { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import {
+  AdditionalContainer,
+  AdditionalLink,
+  AdditionlList,
+  AdditionlTitle,
+  InfoAboutMovie,
+  MovieInfoContainer,
+} from './MovieInfo.styled';
 
 const MovieInfo = ({
   movieDetails: {
@@ -12,8 +20,8 @@ const MovieInfo = ({
   },
 }) => {
   return (
-    <div className="container">
-      <div>
+    <>
+      <MovieInfoContainer>
         <img
           src={
             poster_path
@@ -24,38 +32,39 @@ const MovieInfo = ({
           width={264}
           height={396}
         />
-        <div>
+        <InfoAboutMovie>
           <h1>
             {title} ({release_date.slice(0, 4)})
           </h1>
-          <div>
-            <p>User Score: {vote_average.toFixed(1) * 10}%</p>
-            <p>
-              <span>Overview: </span>
-              {overview}
-            </p>
-            <p>
-              <span>Genres: </span>
-              {genres?.map(({ name }) => name).join(', ')}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="additional">
-        <h3>Additional information</h3>
-        <ul>
+          <p>
+            <span>User Score: </span>
+            {vote_average.toFixed(1) * 10}%
+          </p>
+          <p>
+            <span>Overview: </span>
+            {overview}
+          </p>
+          <p>
+            <span>Genres: </span>
+            {genres?.map(({ name }) => name).join(', ')}
+          </p>
+        </InfoAboutMovie>
+      </MovieInfoContainer>
+      <AdditionalContainer>
+        <AdditionlTitle>Additional information</AdditionlTitle>
+        <AdditionlList>
           <li>
-            <Link to="cast">Cast</Link>
+            <AdditionalLink to="cast">Cast</AdditionalLink>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <AdditionalLink to="reviews">Reviews</AdditionalLink>
           </li>
-        </ul>
-      </div>
+        </AdditionlList>
+      </AdditionalContainer>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
-    </div>
+    </>
   );
 };
 
