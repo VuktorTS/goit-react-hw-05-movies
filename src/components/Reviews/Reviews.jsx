@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/themoviedbAPI';
 import { ReviewsContent, ReviewsList, ReviewsTitle } from './Reviews.styled';
+import { NotInfo } from 'components/NotInfo/NotInfo';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -21,16 +22,20 @@ const Reviews = () => {
 
   return (
     <>
-      <ReviewsList>
-        {reviews.map(({ id, author, content }) => {
-          return (
-            <li key={id}>
-              <ReviewsTitle>Author: {author}</ReviewsTitle>
-              <ReviewsContent>{content}</ReviewsContent>
-            </li>
-          );
-        })}
-      </ReviewsList>
+      {reviews.length !== 0 ? (
+        <ReviewsList>
+          {reviews.map(({ id, author, content }) => {
+            return (
+              <li key={id}>
+                <ReviewsTitle>Author: {author}</ReviewsTitle>
+                <ReviewsContent>{content}</ReviewsContent>
+              </li>
+            );
+          })}
+        </ReviewsList>
+      ) : (
+        <NotInfo />
+      )}
     </>
   );
 };
