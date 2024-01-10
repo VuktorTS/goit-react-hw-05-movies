@@ -4,8 +4,8 @@ import { defaultImg } from 'services/defaultImg';
 import { MovieLink, MoviesList, Title } from './MuviesList.styled';
 
 const MuviesList = ({ muviesList, title }) => {
+  console.log('muviesList: ', muviesList);
   const location = useLocation();
-  console.log('defaultImg: ', defaultImg);
 
   return (
     <>
