@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'services/themoviedbAPI';
+import { CastInfo, CastItem, CastList } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -20,10 +21,10 @@ const Cast = () => {
 
   return (
     <>
-      <ul>
+      <CastList>
         {cast.map(({ cast_id, name, profile_path, character }) => {
           return (
-            <li key={cast_id}>
+            <CastItem key={cast_id}>
               <img
                 src={
                   profile_path
@@ -31,18 +32,20 @@ const Cast = () => {
                     : `https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700`
                 }
                 alt={name}
-                width={264}
-                height={396}
+                width={208}
+                height={300}
               />
-              <h3>{name}</h3>
-              <p>
-                <span>Character: </span>
-                {character}
-              </p>
-            </li>
+              <CastInfo>
+                <h3>{name}</h3>
+                <p>
+                  <span>Character: </span>
+                  {character}
+                </p>
+              </CastInfo>
+            </CastItem>
           );
         })}
-      </ul>
+      </CastList>
     </>
   );
 };

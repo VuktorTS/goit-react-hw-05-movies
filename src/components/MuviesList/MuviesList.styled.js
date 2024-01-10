@@ -12,6 +12,7 @@ export const MoviesList = styled.ul`
   gap: 20px;
   list-style: none;
   color: red;
+  padding-bottom: 20px;
   & li {
     flex-basis: calc((100% - 76px) / 4);
     border: 1px solid black;
