@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { AiOutlineSearch } from 'react-icons/ai';
+
 import { Form, Input } from './SearchForm.styled';
 
 const SearchForm = ({ query, handleChange, submitForm }) => {

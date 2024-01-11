@@ -25,7 +25,7 @@ export const MovieLink = styled(Link)`
   text-decoration: none;
   & h2 {
     color: red;
-    height: 65px;
+    height: 112px;
     display: flex;
     justify-content: center;
     align-items: center;

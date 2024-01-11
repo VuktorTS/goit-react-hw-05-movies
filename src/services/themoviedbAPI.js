@@ -1,5 +1,5 @@
 import axios from 'axios';
-import TOKEN_AUTH from './TOKEN_AUTH';
+import TOKEN_AUTH from '../constants/TOKEN_AUTH';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.headers.common['Authorization'] = TOKEN_AUTH;

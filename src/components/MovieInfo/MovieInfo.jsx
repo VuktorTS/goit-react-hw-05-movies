@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+
 import {
   AdditionalContainer,
   AdditionalLink,
@@ -8,6 +9,7 @@ import {
   InfoAboutMovie,
   MovieInfoContainer,
 } from './MovieInfo.styled';
+import { DEFAULT_IMG } from 'constants/DEFAULT_IMG';
 
 const MovieInfo = ({
   movieDetails: {
@@ -26,7 +28,7 @@ const MovieInfo = ({
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : `https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700`
+              : DEFAULT_IMG
           }
           alt={title}
           width={264}
@@ -61,7 +63,7 @@ const MovieInfo = ({
           </li>
         </AdditionlList>
       </AdditionalContainer>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...1111111111111111111111111111111111111111111111111111111111111111</div>}>
         <Outlet />
       </Suspense>
     </>

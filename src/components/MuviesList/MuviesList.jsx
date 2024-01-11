@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { defaultImg } from 'services/defaultImg';
+
+import { DEFAULT_IMG } from 'constants/DEFAULT_IMG';
+
 import { MovieLink, MoviesList, Title } from './MuviesList.styled';
 
 const MuviesList = ({ muviesList, title }) => {
-  console.log('muviesList: ', muviesList);
   const location = useLocation();
 
   return (
@@ -19,7 +20,7 @@ const MuviesList = ({ muviesList, title }) => {
                   src={
                     poster_path
                       ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                      : defaultImg
+                      : DEFAULT_IMG
                   }
                   alt={title}
                   width={266}
