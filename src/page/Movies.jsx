@@ -6,7 +6,7 @@ import { getMovieByName } from 'services/themoviedbAPI';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('query'));
   const [searchData, setSearchData] = useState([]);
 
   const query = searchParams.get('query') ?? '';

@@ -10,6 +10,7 @@ import {
   MovieInfoContainer,
 } from './MovieInfo.styled';
 import { DEFAULT_IMG } from 'constants/DEFAULT_IMG';
+import { Loader } from 'components/Loader/Loader';
 
 const MovieInfo = ({
   movieDetails: {
@@ -63,7 +64,7 @@ const MovieInfo = ({
           </li>
         </AdditionlList>
       </AdditionalContainer>
-      <Suspense fallback={<div>Loading...1111111111111111111111111111111111111111111111111111111111111111</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>

@@ -8,10 +8,12 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const location = useLocation();
   const BackLocationHref = useRef(location.state?.from ?? '/');
+
   useEffect(() => {
     const fetchMoveisDetails = async () => {
       try {
         const moviesInfo = await getMovieDetails(movieId);
+
         setMovieDetails(moviesInfo);
       } catch (error) {
         console.log(error);
