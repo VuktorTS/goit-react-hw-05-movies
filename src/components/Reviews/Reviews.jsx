@@ -25,7 +25,7 @@ const Reviews = () => {
 
   return (
     <>
-      {reviews.length !== 0 ? (
+      {reviews.length > 0 ? (
         <ReviewsList>
           {reviews.map(({ id, author, content }) => {
             return (

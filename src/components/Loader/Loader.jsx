@@ -13,7 +13,7 @@ export const Loader = () => {
       radius="12.5"
       wrapperStyle={{
         position: 'fixed',
-        top: '50%',
+        top: '25%',
         left: '50%',
       }}
       wrapperClass="grid-wrapper"

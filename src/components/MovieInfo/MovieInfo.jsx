@@ -64,7 +64,7 @@ const MovieInfo = ({
           </li>
         </AdditionlList>
       </AdditionalContainer>
-      <Suspense fallback={<Loader />}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </>
