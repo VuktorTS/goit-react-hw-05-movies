@@ -35,9 +35,4 @@ const Movies = () => {
     </>
   );
 };
-// title = {
-//   searchData.length !== 0
-//             ? `Everything found on request: ${query}`
-//             : `Sorry, but nothing was found for your request.`
-//         }
 export default Movies;
