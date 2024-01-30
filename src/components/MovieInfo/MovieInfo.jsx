@@ -10,7 +10,6 @@ import {
   MovieInfoContainer,
 } from './MovieInfo.styled';
 import { DEFAULT_IMG } from 'constants/DEFAULT_IMG';
-import { Loader } from 'components/Loader/Loader';
 
 const MovieInfo = ({
   movieDetails: {

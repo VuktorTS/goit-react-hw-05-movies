@@ -1,30 +1,9 @@
 import { Loader } from 'components/Loader/Loader';
 import MuviesList from 'components/MuviesList/MuviesList';
-import React, { useEffect, useState } from 'react';
-import { getTrending } from 'services/themoviedbAPI';
+import { useFetchTrendingMovies } from 'hooks/useFetchTrendingMovies';
 
 const Home = () => {
-  const [muviesList, setMuviesList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchTrendingFilms = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-        const { results } = await getTrending();
-        setMuviesList(results);
-      } catch (error) {
-        console.log('error: ', error);
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchTrendingFilms();
-  }, []);
+  const { movies, isLoading, error } = useFetchTrendingMovies();
 
   return (
     <>
@@ -34,8 +13,8 @@ const Home = () => {
         </div>
       )}
       {isLoading && <Loader />}
-      {muviesList.length > 0 && (
-        <MuviesList muviesList={muviesList} title={'Trending today'} />
+      {movies.length > 0 && (
+        <MuviesList muviesList={movies} title={'Trending today'} />
       )}
     </>
   );

@@ -1,28 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useFetchMovieCast } from 'hooks/useFetchMovieCast';
 import { CastInfo, CastItem, CastList } from './Cast.styled';
-
-import { getMovieCredits } from 'services/themoviedbAPI';
 import { DEFAULT_IMG } from 'constants/DEFAULT_IMG';
 
 const Cast = () => {
-  const { movieId } = useParams();
-  const [cast, setCast] = useState([]);
-
-  useEffect(() => {
-    const fetchCastInfo = async () => {
-      try {
-        const { cast } = await getMovieCredits(movieId);
-        setCast(cast);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchCastInfo();
-  }, [movieId]);
-
+  const { cast, isLoading, error } = useFetchMovieCast();
   return (
     <CastList>
       {cast.map(({ cast_id, name, profile_path, character }) => {
